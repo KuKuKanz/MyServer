@@ -5,10 +5,11 @@
  */
 package myserver;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.io.BufferedReader;
 import java.io.IOException;
+
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -22,13 +23,14 @@ public class MyServer {
     /**
      */
     static public void OpenServer() throws IOException {
+        
         ServerSocket server = new ServerSocket(8080);
             System.out.println("Open server ......");
 
         try {
             Socket client = server.accept();
             
-            System.out.println("Open server successfully");
+            System.out.println("Open server is OK");
             
             BufferedReader bufReader = new BufferedReader(new  InputStreamReader( client.getInputStream()));
             
