@@ -30,7 +30,7 @@ public class MyServer {
         try {
             Socket client = server.accept();
             
-            System.out.println("Open server is OK");
+            System.out.println("Open server is not OK");
             
             BufferedReader bufReader = new BufferedReader(new  InputStreamReader( client.getInputStream()));
             
