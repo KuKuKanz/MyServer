@@ -79,7 +79,7 @@ public class ServerTest {
                         output.flush();
                         
                         if (readed == -1){
-                            break;
+                            return;
                         }
                     } while (input.available() != 0);
                 }
