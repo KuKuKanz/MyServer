@@ -34,6 +34,7 @@ public class ServerTest {
         @Override
         public void run() {
             try {
+                System.out.println("Server has opened...");
                 ServerSocket server = new ServerSocket(8888);
                 while (true) {
                     new SocketConnection(server.accept()).start();
@@ -52,6 +53,7 @@ public class ServerTest {
         public SocketConnection(Socket socket) {
             super("Thread 1");
             this.socket = socket;
+            System.out.println("A socket has been connected");
             try {
                 input = socket.getInputStream();
                 output = new PrintWriter(new OutputStreamWriter(
@@ -75,6 +77,10 @@ public class ServerTest {
                                 Charset.forName("UTF-8"));
                         output.write(sendString);
                         output.flush();
+                        
+                        if (readed == -1){
+                            break;
+                        }
                     } while (input.available() != 0);
                 }
 
