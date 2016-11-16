@@ -66,9 +66,10 @@ public class ServerTest {
         @Override
         public void run() {
             try {
-                byte array[] = new byte[1024];
                 while (true) {
                     do {
+                        byte array[] = new byte[1024];
+
                         int readed = input.read(array);
                         System.out.println("readed == " + readed + " "
                                 + new String(array).trim());
